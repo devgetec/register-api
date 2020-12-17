@@ -14,9 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_usuario")
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -25,16 +25,14 @@ public class Usuario implements Serializable{
 	private String telefone;
 	private String nomeResponsavel;
 	private String email;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Endereco> enderecos;
-	
-	 
+
 	public Usuario() {
 		super();
 	}
-
 
 	public Usuario(Integer id, String nomeEmpresa, String cnpj, String telefone, String nomeResponsavel, String email) {
 		super();
@@ -46,72 +44,57 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public String getNomeEmpresa() {
 		return nomeEmpresa;
 	}
-
 
 	public void setNomeEmpresa(String nomeEmpresa) {
 		this.nomeEmpresa = nomeEmpresa;
 	}
 
-
 	public String getCnpj() {
 		return cnpj;
 	}
-
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
-
 	public String getTelefone() {
 		return telefone;
 	}
-
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
-
 	public String getNomeResponsavel() {
 		return nomeResponsavel;
 	}
-
 
 	public void setNomeResponsavel(String nomeResponsavel) {
 		this.nomeResponsavel = nomeResponsavel;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-
 
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -120,7 +103,6 @@ public class Usuario implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -138,7 +120,5 @@ public class Usuario implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }
