@@ -1,4 +1,6 @@
-package com.project.demo.dominio;
+package com.example.demo.dominio;
+
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +12,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_endereco")
-public class Endereco {
-	
+public class Endereco implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -28,12 +30,13 @@ public class Endereco {
 	}
 
 
-	public Endereco(Integer id, String logradouro, String bairro, String complemento) {
+	public Endereco(Integer id, String logradouro, String bairro, String complemento, Usuario usuario) {
 		super();
 		this.id = id;
 		this.logradouro = logradouro;
 		this.bairro = bairro;
 		this.complemento = complemento;
+		this.usuario = usuario;
 	}
 
 

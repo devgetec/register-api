@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.example.demo.dominio.Endereco;
 import com.example.demo.services.EnderecoService;
-import com.project.demo.dominio.Endereco;
 
 
 

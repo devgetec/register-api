@@ -1,4 +1,4 @@
-package com.project.demo.dominio;
+package com.example.demo.dominio;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -26,8 +24,8 @@ public class Usuario implements Serializable {
 	private String nomeResponsavel;
 	private String email;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "client")
+	
+	@OneToMany(mappedBy = "usuario")
 	private List<Endereco> enderecos;
 
 	public Usuario() {

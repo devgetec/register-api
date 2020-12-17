@@ -10,10 +10,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dominio.Usuario;
 import com.example.demo.repositories.UsuarioRepository;
 import com.example.demo.services.exceptions.DatabaseException;
 import com.example.demo.services.exceptions.ResourceNotFoundException;
-import com.project.demo.dominio.Usuario;
 
 @Service
 public class UsuarioService {

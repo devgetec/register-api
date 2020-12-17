@@ -10,10 +10,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dominio.Endereco;
 import com.example.demo.repositories.EnderecoRepository;
 import com.example.demo.services.exceptions.DatabaseException;
 import com.example.demo.services.exceptions.ResourceNotFoundException;
-import com.project.demo.dominio.Endereco;
 
 @Service
 public class EnderecoService {
