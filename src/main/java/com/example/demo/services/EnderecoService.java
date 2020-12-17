@@ -10,26 +10,26 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.repositories.UsuarioRepository;
+import com.example.demo.repositories.EnderecoRepository;
 import com.example.demo.services.exceptions.DatabaseException;
 import com.example.demo.services.exceptions.ResourceNotFoundException;
-import com.project.demo.dominio.Usuario;
+import com.project.demo.dominio.Endereco;
 
 @Service
 public class EnderecoService {
 	@Autowired
-	private UsuarioRepository repository;
+	private EnderecoRepository repository;
 
-	public List<Usuario> findAll() {
+	public List<Endereco> findAll() {
 		return repository.findAll();
 	}
 
-	public Usuario findById(Long id) {
-		Optional<Usuario> obj = repository.findById(id);
+	public Endereco findById(Long id) {
+		Optional<Endereco> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
-	public Usuario insert(Usuario obj) {
+	public Endereco insert(Endereco obj) {
 		return repository.save(obj);
 	}
 
@@ -44,9 +44,9 @@ public class EnderecoService {
 
 	}
 
-	public Usuario update(Long id, Usuario obj) {
+	public Endereco update(Long id, Endereco obj) {
 		try {
-			Usuario entity = repository.getOne(id);
+			Endereco entity = repository.getOne(id);
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
@@ -54,11 +54,9 @@ public class EnderecoService {
 		}
 	}
 
-	private void updateData(Usuario entity, Usuario obj) {
-		entity.setNomeEmpresa(obj.getNomeEmpresa());
-		entity.setEmail(obj.getEmail());
-		entity.setTelefone(obj.getTelefone());
-		entity.setNomeResponsavel(obj.getNomeResponsavel());
-		entity.setCnpj(obj.getCnpj());
+	private void updateData(Endereco entity, Endereco obj) {
+		entity.setBairro(obj.getBairro());
+		entity.setComplemento(obj.getComplemento());
+		entity.setLogradouro(obj.getLogradouro());
 	}
 }
